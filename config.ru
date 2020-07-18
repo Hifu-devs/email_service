@@ -1,2 +1,2 @@
-require './emailservice'
+require './email_service'
 run Emailservice.new
