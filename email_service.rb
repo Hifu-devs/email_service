@@ -21,4 +21,4 @@ class EmailService < Sinatra::Base
   end
 end
 
-run EmailService.run!
+# run EmailService.run!
