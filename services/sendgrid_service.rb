@@ -1,11 +1,12 @@
+
 # using SendGrid's Ruby Library
 # https://github.com/sendgrid/sendgrid-ruby
 require 'sendgrid-ruby'
 include SendGrid
 
-from = Email.new(email: 'test@example.com')
+from = Email.new(email: 'hifudev2001@gmail.com')
 to = Email.new(email: 'test@example.com')
-subject = 'Sending with SendGrid is Fun'
+subject = "Emergency contact alert regarding #{user.name}"
 content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
 mail = Mail.new(from, subject, to, content)
 
