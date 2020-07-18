@@ -9,7 +9,7 @@ class Info
     # @activity =
   end
 
-  def message_template
+  def message
     p "#{info.contact_name}, you were listed as an emergency contact for
     #{info.person_name}. #{info.person_name} left on a #{info.activity} trip on
     #{info.start_date} and expected to be back at #{info.end_date}.
