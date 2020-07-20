@@ -1,50 +1,72 @@
 class Info
+  attr_reader :person_name, :person_email, :person_phone, :person_address,
+              :person_age, :person_race, :person_gender, :sat_tracker,
+              :person_blood_type, :person_allergies, :person_medical_conditions,
+              :person_heightCM, :person_weightKG, :contact_name, :contact_email,
+              :start_time, :end_time, :activity, :party_size, :notes
 
   def initialize(post_info)
-    # @contact_name =
-    # @contact_email =
-    # @person_name =
-    # @start_date =
-    # @end_date =
-    # @activity =
+    @person_name = post_info["data"]["user"]["name"]
+    @person_email = post_info["data"]["user"]["email"]
+    @person_phone = post_info["data"]["user"]["phone"]
+    @person_address = post_info["data"]["user"]["address"]
+    @person_age = post_info["data"]["user"]["age"]
+    @person_race = post_info["data"]["user"]["race"]
+    @person_gender = post_info["data"]["user"]["gender"]
+    @sat_tracker = post_info["data"]["user"]["sat_tracker_address"]
+    @person_blood_type = post_info["data"]["user"]["blood_type"]
+    @person_allergies = post_info["data"]["user"]["allergies"]
+    @person_medical_conditions = post_info["data"]["user"]["medical_conditions"]
+    @person_heightCM = post_info["data"]["user"]["heightCM"]
+    @person_weightKG = post_info["data"]["user"]["weightKG"]
+    # contact
+    @contact_name = post_info["data"]["user"]["contact"]["name"]
+    @contact_email = post_info["data"]["user"]["contact"]["email"]
+    # route
+    @start_time = post_info["data"]["user"]["route"]["start_time"]
+    @end_time = post_info["data"]["user"]["route"]["end_time"]
+    @activity = post_info["data"]["user"]["route"]["activity"]
+    @party_size = post_info["data"]["user"]["route"]["party_size"]
+    @notes = post_info["data"]["user"]["route"]["notes"]
   end
 
   def message
-    p "#{info.contact_name}, you were listed as an emergency contact for
-    #{info.person_name}. #{info.person_name} left on a #{info.activity} trip on
-    #{info.start_date} and expected to be back at #{info.end_date}.
-    #{info.person_name} has not checked back in with us. Please reach out to
-    check on them. If you can not get it touch with #{info.person_name} we
-    recommend calling the police station near their last known location."
-     # hopefully can incorporate local numbers here via api
-     "Here is the relevant information that the police/first responders should be
-     informed of:
-     Name:
-     Age:
-     Address:
-     Phone:
-     Race:
-     Gender:
-     Sat Tracker Address:
-     Blood Type:
-     Allergies:
-     Medical Conditions:
-     Height(cm):
-     Weight(kg):
+    p "#{contact_name}, \
+you were listed as an emergency \
+contact for #{person_name}. #{person_name} \
+left on a #{activity} trip on #{start_time} \
+and expected to be back at #{end_time}. #{person_name} has \
+not checked back in with us. Please reach out to \
+check on them. If you can not get it touch with #{person_name} we \
+recommend calling the police station near their last known location. \
+
+     Here is the relevant information that the police/first responders should be \
+informed of:
+     Name: #{person_name}
+     Age: #{person_age}
+     Address: #{person_address}
+     Phone: #{person_phone}
+     Race: #{person_age}
+     Gender: #{person_gender}
+     Sat Tracker Address: #{sat_tracker}
+     Blood Type: #{person_blood_type}
+     Allergies: #{person_allergies}
+     Medical Conditions: #{person_medical_conditions}
+     Height(cm): #{person_heightCM}
+     Weight(kg): #{person_weightKG}
 
      Trip Details
-     Start time:
-     Expected end time:
-     activity:
-     party size:
-     Additional notes:
+     Start time: #{start_time}
+     Expected end time: #{end_time}
+     Activity: #{activity}
+     Party size: #{party_size}
+     Additional notes: #{notes}
 
      Route Waypoints:
      Long:
      Lat:
 
      "
-
   end
 
 end
