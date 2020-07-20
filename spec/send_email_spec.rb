@@ -37,9 +37,7 @@ describe "My Sinatra Application" do
                 }
         post '/email_alert', info.to_json
         expect(last_response).to be_ok
-
-        # info = JSON.parse(last_response.body)
-        # expect(info.is_a? Hash).to eq(true)
+        expect(last_response.status).to equal(200)
       end
 
 end
