@@ -1,2 +1,2 @@
 require './email_service'
-run Emailservice.new
+run EmailService.new

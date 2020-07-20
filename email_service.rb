@@ -9,7 +9,7 @@ require './poros/info'
 class EmailService < Sinatra::Base
 
   get "/" do
-    "hi"
+    "HIFU email service"
   end
 
   post "/email_alert" do
