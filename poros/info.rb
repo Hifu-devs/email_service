@@ -3,7 +3,7 @@ class Info
               :person_age, :person_race, :person_gender, :sat_tracker,
               :person_blood_type, :person_allergies, :person_medical_conditions,
               :person_heightCM, :person_weightKG, :contact_name, :contact_email,
-              :start_time, :end_time, :activity, :party_size, :notes
+              :start_time, :end_time, :activity, :party_size, :notes, :waypoints
 
   def initialize(post_info)
     @person_name = post_info["data"]["user"]["name"]
@@ -28,45 +28,8 @@ class Info
     @activity = post_info["data"]["user"]["route"]["activity"]
     @party_size = post_info["data"]["user"]["route"]["party_size"]
     @notes = post_info["data"]["user"]["route"]["notes"]
+    @waypoints = post_info["data"]["user"]["route"]["waypoints"]
   end
 
-  def message
-    p "#{contact_name}, \
-you were listed as an emergency \
-contact for #{person_name}. #{person_name} \
-left on a #{activity} trip on #{start_time} \
-and expected to be back at #{end_time}. #{person_name} has \
-not checked back in with us. Please reach out to \
-check on them. If you can not get it touch with #{person_name} we \
-recommend calling the police station near their last known location. \
-
-     Here is the relevant information that the police/first responders should be \
-informed of:
-     Name: #{person_name}
-     Age: #{person_age}
-     Address: #{person_address}
-     Phone: #{person_phone}
-     Race: #{person_age}
-     Gender: #{person_gender}
-     Sat Tracker Address: #{sat_tracker}
-     Blood Type: #{person_blood_type}
-     Allergies: #{person_allergies}
-     Medical Conditions: #{person_medical_conditions}
-     Height(cm): #{person_heightCM}
-     Weight(kg): #{person_weightKG}
-
-     Trip Details
-     Start time: #{start_time}
-     Expected end time: #{end_time}
-     Activity: #{activity}
-     Party size: #{party_size}
-     Additional notes: #{notes}
-
-     Route Waypoints:
-     Long:
-     Lat:
-
-     "
-  end
 
 end
