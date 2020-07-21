@@ -28,12 +28,13 @@ class SendGridService
           start_time: info.start_time,
           activity: info.activity,
           party_size: info.party_size,
-          notes: info.notes
+          notes: info.notes,
+          waypoints: info.waypoints
         },
         to: [
           {
-            email: "flewelling.margo@gmail.com",
-            name: "margo"
+            email: info.contact_email,
+            name: info.contact_name
           }]
         ],
     from: {
@@ -43,37 +44,7 @@ class SendGridService
     template_id: "d-ad4aeb03a37c4b78970df5d14ff6bd22"
   }
   sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-  response = sg.client.mail._('send').post(request_body: data)
-  puts response.status_code
-
-    # mail = Mail.new
-    # mail.template_id = 'd-ad4aeb03a37c4b78970df5d14ff6bd22'
-    # to = Email.new(email: "flewelling.margo@gmail.com")
-    # mail.from = Email.new(email: 'hifudev2001@gmail.com')
-    # subject = "Emergency Alert Regarding #{info.person_name}"
-    # mail.subject = subject
-    # personalization = Personalization.new
-    # personalization.add_to(Email.new(email: to, name: info.contact_name))
-    # personalization.add_dynamic_template_data({
-    #     "contact_name" => "TEST"
-    #   })
-    #   require "pry"; binding.pry
-    # mail.add_personalization(personalization)
-
-    # to = Email.new(email: "flewelling.margo@gmail.com")
-    # from = Email.new(email: 'hifudev2001@gmail.com')
-    # subject = "Emergency Alert Regarding #{info.person_name}"
-    # content = Content.new(type: 'text/plain', value: info.message)
-    # mail = Mail.new(from, subject, to, content)
-    # Personalization.add_to(mail)
-    # mail.add_personalization(personalization)
-    # bodwy = mail.to_json
-
-    # sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    # require "pry"; binding.pry
-    # response = sg.client.mail._('send').post(request_body: mail.to_json)
-    # require "pry"; binding.pry
-    # puts response.status_code
+  sg.client.mail._('send').post(request_body: data)
   end
 
 end
