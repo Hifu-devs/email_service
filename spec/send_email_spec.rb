@@ -36,6 +36,7 @@ describe "My Sinatra Application" do
                   }
                 }
         post '/email_alert', info.to_json
+        require "pry"; binding.pry
         # expect(last_response).to be_ok
         # expect(last_response.status).to equal(200)
       end

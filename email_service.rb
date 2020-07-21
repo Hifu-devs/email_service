@@ -15,6 +15,7 @@ class EmailService < Sinatra::Base
   post "/email_alert" do
     request_body = JSON.parse(request.body.string)
     info = Info.new(request_body)
+    require "pry"; binding.pry
     SendGridService.new.send_email(info)
     # if email_status == ("200" || "202")
     #   require "pry"; binding.pry

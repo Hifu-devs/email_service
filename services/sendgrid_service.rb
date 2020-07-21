@@ -12,7 +12,23 @@ class SendGridService
     data = {
       personalizations: [
         dynamic_template_data: {
-          contact_name: "Jane Test"
+          contact_name: info.contact_name,
+          person_name: info.person_name,
+          person_age: info.person_age,
+          person_address: info.person_address,
+          person_phone: info.person_phone,
+          person_gender: info.person_gender,
+          person_blood_type: info.person_blood_type,
+          sat_tracker: info.sat_tracker,
+          person_allergies: info.person_allergies,
+          person_medical_conditions: info.person_medical_conditions,
+          person_heightCM: info.person_heightCM,
+          person_weightKG: info.person_weightKG,
+          end_time: info.end_time,
+          start_time: info.start_time,
+          activity: info.activity,
+          party_size: info.party_size,
+          notes: info.notes
         },
         to: [
           {
@@ -26,11 +42,8 @@ class SendGridService
     },
     template_id: "d-ad4aeb03a37c4b78970df5d14ff6bd22"
   }
-  require "pry"; binding.pry
   sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-  require "pry"; binding.pry
   response = sg.client.mail._('send').post(request_body: data)
-  require "pry"; binding.pry
   puts response.status_code
 
     # mail = Mail.new

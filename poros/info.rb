@@ -30,43 +30,43 @@ class Info
     @notes = post_info["data"]["user"]["route"]["notes"]
   end
 
-  def message
-    p "#{contact_name}, \
-you were listed as an emergency \
-contact for #{person_name}. #{person_name} \
-left on a #{activity} trip on #{start_time} \
-and expected to be back at #{end_time}. #{person_name} has \
-not checked back in with us. Please reach out to \
-check on them. If you can not get it touch with #{person_name} we \
-recommend calling the police station near their last known location. \
-
-     Here is the relevant information that the police/first responders should be \
-informed of:
-     Name: #{person_name}
-     Age: #{person_age}
-     Address: #{person_address}
-     Phone: #{person_phone}
-     Race: #{person_age}
-     Gender: #{person_gender}
-     Sat Tracker Address: #{sat_tracker}
-     Blood Type: #{person_blood_type}
-     Allergies: #{person_allergies}
-     Medical Conditions: #{person_medical_conditions}
-     Height(cm): #{person_heightCM}
-     Weight(kg): #{person_weightKG}
-
-     Trip Details
-     Start time: #{start_time}
-     Expected end time: #{end_time}
-     Activity: #{activity}
-     Party size: #{party_size}
-     Additional notes: #{notes}
-
-     Route Waypoints:
-     Long:
-     Lat:
-
-     "
-  end
+#   def message
+#     p "#{contact_name}, \
+# you were listed as an emergency \
+# contact for #{person_name}. #{person_name} \
+# left on a #{activity} trip on #{start_time} \
+# and expected to be back at #{end_time}. #{person_name} has \
+# not checked back in with us. Please reach out to \
+# check on them. If you can not get it touch with #{person_name} we \
+# recommend calling the police station near their last known location. \
+#
+#      Here is the relevant information that the police/first responders should be \
+# informed of:
+#      Name: #{person_name}
+#      Age: #{person_age}
+#      Address: #{person_address}
+#      Phone: #{person_phone}
+#      Race: #{person_age}
+#      Gender: #{person_gender}
+#      Sat Tracker Address: #{sat_tracker}
+#      Blood Type: #{person_blood_type}
+#      Allergies: #{person_allergies}
+#      Medical Conditions: #{person_medical_conditions}
+#      Height(cm): #{person_heightCM}
+#      Weight(kg): #{person_weightKG}
+#
+#      Trip Details
+#      Start time: #{start_time}
+#      Expected end time: #{end_time}
+#      Activity: #{activity}
+#      Party size: #{party_size}
+#      Additional notes: #{notes}
+#
+#      Route Waypoints:
+#      Long:
+#      Lat:
+#
+#      "
+  # end
 
 end
