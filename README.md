@@ -1,4 +1,6 @@
 ## Email microservice for use of the HIFU App api
+  Hifu Api calls to this microservice to send an email to
+  the emergency contact using Twilio/SendGrid
 
 ### Endpoint to send emails to emergency contact
 Post to https://nameless-ravine-82701.herokuapp.com/email_alert
@@ -46,5 +48,8 @@ info = { data:
                  }
             }
           }
+
+Response codes: 200 Success, email was sent
+                400, Error, email not sent
 
 Developers: Margo Flewelling, Krista Stadler, Brian Greeson
