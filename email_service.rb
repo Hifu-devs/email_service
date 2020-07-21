@@ -15,14 +15,11 @@ class EmailService < Sinatra::Base
   post "/email_alert" do
     request_body = JSON.parse(request.body.string)
     info = Info.new(request_body)
-    require "pry"; binding.pry
-    SendGridService.new.send_email(info)
-    # if email_status == ("200" || "202")
-    #   require "pry"; binding.pry
-    #   render :status => :created, json: { message: "Email sent to #{info.contact_name}"}
-    # else
-    #   message = user.errors.full_messages.to_sentence
-    #   render :status => 400, json: { message: message }
-    # end
+    response  = SendGridService.new.send_email(info)
+    if response.status_code == "202"
+      response.body << "Email sent successfully"
+    else
+      response.body << "Error, email not sent"
+    end
   end
 end
