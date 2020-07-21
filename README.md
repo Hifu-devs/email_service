@@ -3,27 +3,17 @@
   the emergency contact using Twilio/SendGrid
 
 ### Endpoint to send emails to emergency contact
-Post to https://nameless-ravine-82701.herokuapp.com/email_alert
-Post body should be formatted in the following nested structure:
-
-  { data:  
-  { user:  
-       contact: {  
-                 }  
-        route: {  
-            waypoints: {  
-            }  
-          }  
-    }}}
+Post to https://nameless-ravine-82701.herokuapp.com/email_alert  
+Post body should be formatted in the following nested structure:  
 
 
 ### Example post request body
 
 info = { data:    
        { user: { name: "John Doe",  
-                 email: "john@example.com",  
-                 phone: "222 224 2222",  
-                 address: "123 hifu ln, denver co, 80210",  
+      email: "john@example.com",  
+      phone: "222 224 2222",  
+      address: "123 hifu ln, denver co, 80210",  
                  age: 33,  
                  race: "white",  
                  gender: "male",  
@@ -43,13 +33,14 @@ info = { data:
                           notes: "backpacking and fishing in mt zirkel wilderness"  
                           waypoints: [ {latitude: 40.23423, longitute: -102.32435},   
                                        {latitude: 40.11345, longitute: -102.4934)  
-                            ]  
+                            ]    
 
-                 }  
+               }  
             }  
           }  
 
-Response codes: 200 Success, email was sent  
-                400, Error, email not sent  
+Response codes: 
+* 200 Success, email was sent  
+* 400, Error, email not sent  
 
 Developers: Margo Flewelling, Krista Stadler, Brian Greeson
