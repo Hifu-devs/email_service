@@ -31,9 +31,9 @@ describe "My Sinatra Application" do
                                 activity: "backpacking",
                                 party_size: 1,
                                 notes: "backpacking and fishing in mt zirkel wilderness",
-                                waypoints: [{latitute: 40.784465, longitute: -106.721887},
-                                            {latitute: 40.826558, longitute: -106.702631},
-                                            {latitute: 40.758821, longitute: -106.694136}
+                                waypoints: [{latitude: 40.784465, longitude: -106.721887},
+                                            {latitude: 40.826558, longitude: -106.702631},
+                                            {latitude: 40.758821, longitude: -106.694136}
                                            ]
                                 }
                        }
