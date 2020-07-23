@@ -9,6 +9,7 @@ include SendGrid
 class SendGridService
 
   def send_email(info)
+
     data = {
       personalizations: [
         dynamic_template_data: {
@@ -29,7 +30,7 @@ class SendGridService
           activity: info.activity,
           party_size: info.party_size,
           notes: info.notes,
-          waypoints: info.waypoints
+          waypoints: all_waypoints(info.waypoints)
         },
         to: [
           {
@@ -44,7 +45,19 @@ class SendGridService
     template_id: "d-ad4aeb03a37c4b78970df5d14ff6bd22"
   }
   sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-  sg.client.mail._('send').post(request_body: data)
+  response = sg.client.mail._('send').post(request_body: data)
+  response
   end
+
+  def all_waypoints(waypoints)
+    all = ""
+    n = 1
+    waypoints.each do |waypoint|
+      all << "##{n}- Latitude: #{waypoint["latitude"]} Longitude: #{waypoint["longitude"]} \n"
+      n+=1
+    end
+    all
+  end
+
 
 end
