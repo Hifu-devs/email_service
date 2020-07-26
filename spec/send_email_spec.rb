@@ -35,7 +35,9 @@ describe "My Sinatra Application" do
                                             {latitude: 40.826558, longitude: -106.702631},
                                             {latitude: 40.758821, longitude: -106.694136}
                                            ]
-                                }
+                                },
+                      local_authorities: { "name": "Lassen County Sheriff's Department",
+                                           "phone_number": "(530) 257-6121" }
                        }
                   }
                 }
@@ -73,7 +75,9 @@ describe "My Sinatra Application" do
                                               {latitute: 40.826558, longitute: -106.702631},
                                               {latitute: 40.758821, longitute: -106.694136}
                                              ]
-                                  }
+                                  },
+                          local_authorities: { "name": "Lassen County Sheriff's Department",
+                                                       "phone_number": "(530) 257-6121" }
                          }
                     }
                   }

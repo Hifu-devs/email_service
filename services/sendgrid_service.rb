@@ -9,7 +9,6 @@ include SendGrid
 class SendGridService
 
   def send_email(info)
-
     data = {
       personalizations: [
         dynamic_template_data: {
@@ -18,8 +17,8 @@ class SendGridService
           person_age: info.person_age,
           person_address: info.person_address,
           person_phone: info.person_phone,
-          person_gender: info.person_gender,
-          person_blood_type: info.person_blood_type,
+          person_gender: info.person_gender.capitalize,
+          person_blood_type: info.person_blood_type.upcase,
           sat_tracker: info.sat_tracker,
           person_allergies: info.person_allergies,
           person_medical_conditions: info.person_medical_conditions,
@@ -27,10 +26,12 @@ class SendGridService
           person_weightKG: info.person_weightKG,
           end_time: info.end_time,
           start_time: info.start_time,
-          activity: info.activity,
+          activity: info.activity.capitalize,
           party_size: info.party_size,
           notes: info.notes,
-          waypoints: all_waypoints(info.waypoints)
+          waypoints: all_waypoints(info.waypoints),
+          local_authority_name: info.local_authority_name,
+          local_authority_phone: info.local_authority_phone
         },
         to: [
           {
@@ -44,6 +45,7 @@ class SendGridService
     },
     template_id: "d-ad4aeb03a37c4b78970df5d14ff6bd22"
   }
+  require "pry"; binding.pry
   sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
   response = sg.client.mail._('send').post(request_body: data)
   response
