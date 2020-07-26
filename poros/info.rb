@@ -3,7 +3,8 @@ class Info
               :person_age, :person_race, :person_gender, :sat_tracker,
               :person_blood_type, :person_allergies, :person_medical_conditions,
               :person_heightCM, :person_weightKG, :contact_name, :contact_email,
-              :start_time, :end_time, :activity, :party_size, :notes, :waypoints
+              :start_time, :end_time, :activity, :party_size, :notes, :waypoints,
+              :local_authority_name, :local_authority_phone
 
   def initialize(post_info)
     @person_name = post_info["data"]["user"]["name"]
@@ -29,6 +30,8 @@ class Info
     @party_size = post_info["data"]["user"]["route"]["party_size"]
     @notes = post_info["data"]["user"]["route"]["notes"]
     @waypoints = post_info["data"]["user"]["route"]["waypoints"]
+    @local_authority_name = post_info["data"]["user"]["local_authorities"]["name"]
+    @local_authority_phone = post_info["data"]["user"]["local_authorities"]["phone_number"]
   end
 
 
