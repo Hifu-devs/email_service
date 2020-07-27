@@ -54,7 +54,7 @@ class SendGridService
     all = ""
     n = 1
     waypoints.each do |waypoint|
-      all << "##{n}- Latitude: #{waypoint["latitude"]} Longitude: #{waypoint["longitude"]} \n"
+      all << "##{n}- Latitude: #{waypoint["attributes"]["latitude"]} Longitude: #{waypoint["attributes"]["longitude"]} \n"
       n+=1
     end
     all
