@@ -2,6 +2,7 @@
 # https://github.com/sendgrid/sendgrid-ruby
 require 'sendgrid-ruby'
 require 'dotenv'
+require 'date'
 Dotenv.load
 
 include SendGrid
@@ -24,8 +25,8 @@ class SendGridService
           person_medical_conditions: info.person_medical_conditions,
           person_heightCM: info.person_heightCM,
           person_weightKG: info.person_weightKG,
-          end_time: info.end_time,
-          start_time: info.start_time,
+          end_time: pretty_time(info.end_time),
+          start_time: pretty_time(info.start_time),
           activity: info.activity,
           party_size: info.party_size,
           notes: info.notes,
@@ -58,6 +59,11 @@ class SendGridService
       n+=1
     end
     all
+  end
+
+  def pretty_time(time)
+    date = DateTime.iso8601(time)
+    date.strftime("%B %d %Y at %H:%M %p")
   end
 
 
