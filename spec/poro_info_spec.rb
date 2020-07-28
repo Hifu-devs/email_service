@@ -16,8 +16,8 @@ describe "My Sinatra Application" do
                     {"activity"=>"backpacking",
                      "party_size"=>1,
                      "notes"=>"Hiking and Fishing in the Mt Zirkel Wilderness.",
-                     "start_time"=>"2020-07-27T18:12:35.859Z",
-                     "end_time"=>"2020-07-27T12:12:00.000Z",
+                     "start_time"=>"2020-07-28T22:26:10.430Z",
+                     "end_time"=>"2020-07-28T22:26:10.430Z",
                      "user"=>
                       {"data"=>
                         {"id"=>"345",
@@ -59,8 +59,8 @@ describe "My Sinatra Application" do
         expect(info.person_weightKG).to eq(73)
         expect(info.contact_name).to eq("Jane Doe")
         expect(info.contact_email).to eq("flewelling.margo@gmail.com")
-        expect(info.start_time).to eq("2020-07-27T18:12:35.859Z")
-        expect(info.end_time).to eq("2020-07-27T12:12:00.000Z")
+        expect(info.start_time).to eq("2020-07-28T22:26:10.430Z")
+        expect(info.end_time).to eq("2020-07-28T22:26:10.430Z")
         expect(info.activity).to eq("backpacking")
         expect(info.party_size).to eq(1)
         expect(info.notes).to eq("Hiking and Fishing in the Mt Zirkel Wilderness.")

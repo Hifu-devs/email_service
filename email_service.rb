@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'json'
 require './services/sendgrid_service'
 require './poros/info'
+require 'date'
 
 class EmailService < Sinatra::Base
 
