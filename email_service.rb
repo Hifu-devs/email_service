@@ -5,7 +5,6 @@ require 'json'
 require './services/sendgrid_service'
 require './poros/info'
 
-
 class EmailService < Sinatra::Base
 
   get "/" do
